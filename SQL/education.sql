@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS course;
 CREATE TABLE IF NOT EXISTS course (
   courseid int(11) NOT NULL AUTO_INCREMENT,
   name varchar(250) NOT NULL,
-  institution int(11) NOT NULL,
+  institution int(11) NULL,
   PRIMARY KEY (courseid),
   KEY FK_course_institution (institution),
   CONSTRAINT FK_course_institution FOREIGN KEY (institution) REFERENCES institution (institutionid)
@@ -37,7 +37,7 @@ DROP TABLE IF EXISTS student;
 CREATE TABLE IF NOT EXISTS student (
   studentid int(11) NOT NULL AUTO_INCREMENT,
   name varchar(250) NOT NULL,
-  course int(11) NOT NULL,
+  course int(11) NULL,
   PRIMARY KEY (studentid),
   KEY FK_student_course (course),
   CONSTRAINT FK_student_course FOREIGN KEY (course) REFERENCES course (courseid)
